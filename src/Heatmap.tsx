@@ -69,7 +69,7 @@ const useActivities = (startDate: string, endDate: string) => {
         const datum = {
           count: count ?? 0,
           date: formatAsDashed(date),
-          originalName: page["original-name"] as string,
+          originalName: page["name"] as string,
         };
         return [datum.date, datum];
       })
