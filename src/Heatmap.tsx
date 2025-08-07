@@ -46,9 +46,8 @@ const useActivities = (startDate: string, endDate: string) => {
         [:find (pull ?p [*]) (count ?b)
          :where
          [?b :block/page ?p]
-         [?p :block/journal? true]
          [?p :block/journal-day ?d]
-         [?b :block/content ?c]
+         [?b :block/title ?c]
          [(clojure.string/blank? ?c) ?empty]
          [(not ?empty)]
          [(>= ?d ${formatAsParam(date0)})]
@@ -272,7 +271,7 @@ export const Heatmap = React.forwardRef<HTMLDivElement>(({}, ref) => {
     <div
       ref={ref}
       className="heatmap-root"
-      style={{ left: right - 300, top: bottom + 20 }}
+      style={{ left: right - 350, top: bottom + 20 }}
     >
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <DateRange range={range} onRangeChange={setRange} today={today} />
